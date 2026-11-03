@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentManager>
+  <!--<Place id="0" name="ofertas">
+    
+  </Place>-->
+  <Place id="1" name="ofertas">
+    <Event id="0">
+      <Image>DSC01711.jpg</Image>
+      <Text lang="es">Peugeot 206 1.4 75 cv año 2005 33.000 Km.&#13;
+Precio: 5.500€ con traspaso incluido.&#13;
+</Text>
+      <Text lang="en"/>
+      <Text lang="de"/>
+    </Event>
+    <Event id="1">
+      <Image>DSC01712.jpg</Image>
+      <Text lang="es"/>
+      <Text lang="en"/>
+      <Text lang="de"/>
+    </Event>
+    <Event id="2">
+      <Image>DSC01713.jpg</Image>
+      <Text lang="es"/>
+      <Text lang="en"/>
+      <Text lang="de"/>
+    </Event>
+    <Event id="3">
+      <Image>DSC01715.jpg</Image>
+      <Text lang="es"/>
+      <Text lang="en"/>
+      <Text lang="de"/>
+    </Event>
+    <Event id="4">
+      <Image>IMG_0490.jpg</Image>
+      <Text lang="es">Seat Altea 1.9 TDI 106 cv 5p. Año 2004&#13;
+5.500€ con traspaso incluido.</Text>
+      <Text lang="en"/>
+      <Text lang="de"/>
+    </Event>
+    <Event id="5">
+      <Image>IMG_0491.jpg</Image>
+      <Text lang="es"/>
+      <Text lang="en"/>
+      <Text lang="de"/>
+    </Event>
+  </Place>
+  <!--<Place id="2" name="Es Poas">
+</Place>
+  <Place id="3" name="S'almonia">
+ 
+  </Place>
+  <Place id="4" name="Na Taconera">
+ 
+  </Place>
+  <Place id="5" name="Na Martina">
+ 
+  </Place>
+  <Place id="6" name="en alquiler">
+    
+  </Place>
+  <Place id="7" name="en venta">
+ 
+  </Place>-->
+</ContentManager>
