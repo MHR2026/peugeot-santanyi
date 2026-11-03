@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-800.css";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-navy: #13233f;
+  --color-navy-dark: #0b1628;
+  --color-steel: #eef1f5;
+  --color-line: #dde2ea;
+  --color-ink: #1d2433;
+  --color-accent: #d7262e;
+  --color-accent-dark: #b51d24;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-white text-ink font-sans antialiased; }
+h1, h2, h3 { @apply font-extrabold tracking-tight; }
+
+/* Texto largo (página legal) */
+.prose h2 { @apply mt-12 mb-4 text-2xl text-navy; }
+.prose h3 { @apply mt-8 mb-3 text-xl text-navy; }
+.prose p, .prose li { @apply mb-4 leading-relaxed text-ink/80; }
+.prose ul { @apply mb-4 list-disc pl-6; }
+.prose a { @apply text-accent underline; }
+.prose { overflow-wrap: anywhere; }

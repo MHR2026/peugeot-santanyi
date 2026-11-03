@@ -1,0 +1,44 @@
+# Configuración para Apache
+
+ErrorDocument 404 /404.html
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Panel de la web antigua: bloqueado (tenía una contraseña insegura)
+  RewriteRule ^(admin|events)(/|$) - [F,L]
+  RewriteRule ^events\.xml$ - [F,L]
+
+  # Portada: idioma según el navegador (castellano por defecto)
+  RewriteCond %{HTTP:Accept-Language} ^(es|de|en) [NC]
+  RewriteRule ^$ /%1/ [L,R=302]
+  RewriteRule ^$ /es/ [L,R=302]
+
+  # URLs de la web antigua
+  RewriteRule ^index\.php$ /es/ [L,R=301]
+  RewriteRule ^serveis\.php$ /es/#servicios [L,R=301,NE]
+  RewriteRule ^ofertas\.php$ /es/#ocasion [L,R=301,NE]
+  RewriteRule ^contacto\.php$ /es/#contacto [L,R=301,NE]
+  RewriteRule ^cookies\.php$ /es/legal/ [L,R=301]
+  RewriteRule ^(de|en)/index\.php$ /$1/ [L,R=301]
+  RewriteRule ^(de|en)/serveis\.php$ /$1/#servicios [L,R=301,NE]
+  RewriteRule ^(de|en)/ofertas\.php$ /$1/#ocasion [L,R=301,NE]
+  RewriteRule ^(de|en)/contacto\.php$ /$1/#contacto [L,R=301,NE]
+  RewriteRule ^(de|en)/cookies\.php$ /$1/legal/ [L,R=301]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>

@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { useTranslations } from '../i18n/ui';
+const t = useTranslations('es');
+---
+<Base lang="es" title={`${t('notfound.title')} · Automòbils Vidal Santanyí`} noindex>
+  <section class="mx-auto max-w-2xl px-4 py-32 text-center">
+    <h1 class="text-4xl text-navy">{t('notfound.title')}</h1>
+    <a href="/es/" class="mt-10 inline-block rounded-full bg-accent px-7 py-3 font-semibold text-white">{t('notfound.back')}</a>
+  </section>
+</Base>

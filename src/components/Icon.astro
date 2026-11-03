@@ -1,0 +1,22 @@
+---
+// Iconos de línea (24×24) para servicios y datos de contacto.
+interface Props { name: string; class?: string }
+const { name, class: cls = 'h-6 w-6' } = Astro.props;
+const paths: Record<string, string> = {
+  wrench: 'M14.7 6.3a4 4 0 00-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 005.2-5.4l-2.5 2.5-2.5-.5-.5-2.5z',
+  check: 'M9 12l2 2 4-4M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z',
+  truck: 'M3 6h11v10H3zM14 10h4l3 3v3h-7M7 19a2 2 0 100-4 2 2 0 000 4zM17 19a2 2 0 100-4 2 2 0 000 4z',
+  calendar: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4M8 14h2M14 14h2',
+  tyre: 'M12 21a9 9 0 100-18 9 9 0 000 18zM12 16a4 4 0 100-8 4 4 0 000 8zM12 3v5M12 16v5M3 12h5M16 12h5',
+  snow: 'M12 2v20M4.9 6l14.2 12M4.9 18L19.1 6M9 3l3 3 3-3M9 21l3-3 3 3',
+  bulb: 'M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0012 3z',
+  align: 'M12 3v18M5 7h4v10H5zM15 7h4v10h-4z',
+  bolt: 'M13 2L4 14h7l-1 8 9-12h-7z',
+  phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z',
+  mail: 'M3 6h18v12H3zM3 7l9 6 9-6',
+  pin: 'M12 21s-7-6.3-7-12a7 7 0 0114 0c0 5.7-7 12-7 12zM12 11a2 2 0 100-4 2 2 0 000 4z',
+  clock: 'M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v5l3 2',
+  car: 'M5 13l2-5h10l2 5M3 13h18v5H3zM7 18v2M17 18v2M7 15.5h.01M17 15.5h.01',
+};
+---
+<svg viewBox="0 0 24 24" class={cls} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>

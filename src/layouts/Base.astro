@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { company, languages, useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; title?: string; description?: string; path?: string; noindex?: boolean }
+const { lang, title, description, path = '', noindex = false } = Astro.props;
+const t = useTranslations(lang);
+const site = 'http://www.peugeot-santanyi.com';
+const pageTitle = title ?? t('meta.title');
+const pageDescription = description ?? t('meta.description');
+const nav = [
+  ['#servicios', t('nav.services')],
+  ['#taller', t('nav.workshop')],
+  ['#horario', t('nav.hours')],
+  ['#contacto', t('nav.contact')],
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRepair',
+  name: company.name,
+  legalName: company.legalName,
+  url: `${site}/${lang}/`,
+  image: `${site}/images/fachada-2.webp`,
+  telephone: '+34971653603',
+  email: company.email,
+  address: { '@type': 'PostalAddress', streetAddress: company.address, postalCode: '07650', addressLocality: 'Santanyí', addressRegion: 'Illes Balears', addressCountry: 'ES' },
+  geo: { '@type': 'GeoCoordinates', latitude: company.lat, longitude: company.lng },
+};
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#13233f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {noindex ? <meta name="robots" content="noindex" /> : <>
+      <link rel="canonical" href={`${site}/${lang}/${path}`} />
+      {Object.keys(languages).map((l) => <link rel="alternate" hreflang={l} href={`${site}/${l}/${path}`} />)}
+      <link rel="alternate" hreflang="x-default" href={`${site}/es/${path}`} />
+    </>}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={`${site}/images/fachada-2.webp`} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <header class="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+        <a href={`/${lang}/`} class="leading-tight">
+          <span class="block text-lg font-extrabold tracking-tight text-navy">Automòbils Vidal</span>
+          <span class="block text-xs font-semibold uppercase tracking-[0.2em] text-accent">Santanyí</span>
+        </a>
+        <nav class="flex items-center gap-5 text-sm font-semibold">
+          {nav.map(([href, label]) => <a href={`/${lang}/${href}`} class="hidden text-ink/80 hover:text-accent lg:inline">{label}</a>)}
+          <details class="relative">
+            <summary class="cursor-pointer list-none rounded px-2 py-1 text-xs uppercase text-ink/70 hover:text-accent">{lang} ▾</summary>
+            <ul class="absolute right-0 mt-2 w-36 rounded-lg bg-white py-1 shadow-lg ring-1 ring-line">
+              {Object.entries(languages).map(([l, name]) => (
+                <li><a href={`/${l}/${path}`} hreflang={l} class:list={['block px-4 py-2 hover:bg-steel', l === lang && 'text-accent']}>{name}</a></li>
+              ))}
+            </ul>
+          </details>
+          <a href={company.phoneHref} class="flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-white hover:bg-accent-dark">
+            <Icon name="phone" class="h-4 w-4" /><span class="hidden sm:inline">{company.phone}</span><span class="sm:hidden">{t('cta.call')}</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main><slot /></main>
+
+    <footer class="bg-navy-dark text-white/80">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-3">
+        <div>
+          <p class="text-lg font-extrabold text-white">{company.name}</p>
+          <p class="mt-2 text-sm">{t('hero.eyebrow')}</p>
+          <a href="http://www.autotaller.net" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-3 text-sm hover:text-white">
+            <img src="/images/ad-calidad.webp" alt="AD Autotaller" width="48" height="48" class="h-12 w-12 rounded-full bg-white" loading="lazy" />
+            {t('footer.ad')}
+          </a>
+        </div>
+        <div class="space-y-1 text-sm">
+          <p>{company.address}</p>
+          <p>{company.city}</p>
+          <p><a class="hover:text-white" href={company.phoneHref}>{company.phone}</a></p>
+          <p><a class="break-all hover:text-white" href={`mailto:${company.email}`}>{company.email}</a></p>
+        </div>
+        <div class="space-y-1 text-sm">
+          <p class="font-semibold text-white">{t('hours.title')}</p>
+          <p>{t('info.workshop')}: {company.hours.workshop.join(' – ')}</p>
+          <p>{t('info.office')}: {company.hours.office.join(' – ')}</p>
+          <p class="pt-4"><a class="underline hover:text-white" href={`/${lang}/legal/`}>{t('footer.legal')}</a></p>
+        </div>
+      </div>
+      <div class="border-t border-white/10 py-5 text-center text-xs text-white/50">© {new Date().getFullYear()} {company.legalName}</div>
+    </footer>
+  </body>
+</html>
