@@ -1,6 +1,6 @@
 import { languages } from '../i18n/ui';
 
-const site = 'http://www.peugeot-santanyi.com';
+const site = 'https://www.peugeot-santanyi.com';
 
 export function GET() {
   const urls = Object.keys(languages).flatMap((l) => [`${site}/${l}/`, `${site}/${l}/legal/`]);

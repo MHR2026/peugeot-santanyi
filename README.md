@@ -1,7 +1,7 @@
 # Automòbils Vidal Santanyí — web
 
 Web de **Automobils Vidal Santanyi SL**, taller especialista Peugeot-Citroën en Santanyí
-(http://www.peugeot-santanyi.com), hecha con [Astro](https://astro.build) + Tailwind CSS.
+(https://www.peugeot-santanyi.com), hecha con [Astro](https://astro.build) + Tailwind CSS.
 Sustituye a la web antigua en PHP (está en el historial de git, commit «Importar la web del servidor»).
 Es estática: sin base de datos, sin formularios y sin cookies.
 
