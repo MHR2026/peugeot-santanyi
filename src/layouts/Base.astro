@@ -26,6 +26,7 @@ const schema = {
   email: company.email,
   address: { '@type': 'PostalAddress', streetAddress: company.address, postalCode: '07650', addressLocality: 'Santanyí', addressRegion: 'Illes Balears', addressCountry: 'ES' },
   geo: { '@type': 'GeoCoordinates', latitude: company.lat, longitude: company.lng },
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: company.hours.office[0], closes: company.hours.office[1] }],
 };
 ---
 <!doctype html>
@@ -91,7 +92,7 @@ const schema = {
           <p><a class="break-all hover:text-white" href={`mailto:${company.email}`}>{company.email}</a></p>
         </div>
         <div class="space-y-1 text-sm">
-          <p class="font-semibold text-white">{t('hours.title')}</p>
+          <p class="font-semibold text-white">{t('hours.title')} · {t('info.weekdays')}</p>
           <p>{t('info.workshop')}: {company.hours.workshop.join(' – ')}</p>
           <p>{t('info.office')}: {company.hours.office.join(' – ')}</p>
           <p class="pt-4"><a class="underline hover:text-white" href={`/${lang}/legal/`}>{t('footer.legal')}</a></p>

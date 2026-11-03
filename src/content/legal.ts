@@ -1,7 +1,7 @@
 // Aviso legal, privacidad y cookies (HTML por idioma). Los datos del titular vienen de `company`.
 import { company } from '../i18n/ui';
 
-const titular = `${company.legalName}<br />${company.address}, ${company.city}<br />Tel. ${company.phone} · <a href="mailto:${company.email}">${company.email}</a>`;
+const titular = `${company.legalName} · CIF ${company.cif}<br />${company.address}, ${company.city}<br />Tel. ${company.phone} · <a href="mailto:${company.email}">${company.email}</a>`;
 
 export const legal = {
   es: `

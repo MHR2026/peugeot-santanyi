@@ -6,6 +6,7 @@ export type Lang = keyof typeof languages;
 export const company = {
   name: 'Automòbils Vidal Santanyí',
   legalName: 'Automobils Vidal Santanyi SL',
+  cif: 'B-57788988',
   address: 'C/ Bernat Vidal i Tomàs, 62',
   city: '07650 Santanyí (Mallorca)',
   phone: '971 653 603',
@@ -13,6 +14,7 @@ export const company = {
   email: 'Peugeot_santanyi@hotmail.com',
   lat: 39.352142,
   lng: 3.131508,
+  // De lunes a viernes
   hours: { workshop: ['07:00', '15:00'], office: ['07:00', '18:00'] },
 };
 
@@ -35,6 +37,7 @@ const es = {
   'info.office': 'Oficina',
   'info.address': 'Dirección',
   'info.phone': 'Teléfono',
+  'info.weekdays': 'De lunes a viernes',
   'services.eyebrow': 'Qué hacemos',
   'services.title': 'Nuestros servicios',
   'services.text': 'Especialistas en Peugeot y Citroën, y mecánica general para coches de todas las marcas.',
@@ -75,6 +78,7 @@ const de: Dict = {
   'info.office': 'Büro',
   'info.address': 'Adresse',
   'info.phone': 'Telefon',
+  'info.weekdays': 'Montag bis Freitag',
   'services.eyebrow': 'Was wir machen',
   'services.title': 'Unsere Leistungen',
   'services.text': 'Spezialisiert auf Peugeot und Citroën – und allgemeine Mechanik für Fahrzeuge aller Marken.',
@@ -113,6 +117,7 @@ const en: Dict = {
   'info.office': 'Office',
   'info.address': 'Address',
   'info.phone': 'Phone',
+  'info.weekdays': 'Monday to Friday',
   'services.eyebrow': 'What we do',
   'services.title': 'Our services',
   'services.text': 'Peugeot and Citroën specialists, plus general mechanics for cars of all makes.',

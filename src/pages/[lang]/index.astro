@@ -38,11 +38,11 @@ const mapEmbed = `https://www.google.com/maps?q=${company.lat},${company.lng}&z=
     <div class="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
       <div class="flex items-start gap-3">
         <Icon name="clock" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
-        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.workshop')}</p><p class="text-lg font-semibold">{company.hours.workshop.join(' – ')}</p></div>
+        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.workshop')}</p><p class="text-lg font-semibold">{company.hours.workshop.join(' – ')}</p><p class="text-sm text-ink/60">{t('info.weekdays')}</p></div>
       </div>
       <div class="flex items-start gap-3">
         <Icon name="clock" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
-        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.office')}</p><p class="text-lg font-semibold">{company.hours.office.join(' – ')}</p></div>
+        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.office')}</p><p class="text-lg font-semibold">{company.hours.office.join(' – ')}</p><p class="text-sm text-ink/60">{t('info.weekdays')}</p></div>
       </div>
       <div class="flex items-start gap-3">
         <Icon name="phone" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
@@ -119,7 +119,7 @@ const mapEmbed = `https://www.google.com/maps?q=${company.lat},${company.lng}&z=
           <div class="flex gap-3"><Icon name="phone" class="h-6 w-6 shrink-0 text-accent" /><dd><a class="font-semibold hover:text-accent" href={company.phoneHref}>{company.phone}</a></dd></div>
           <div class="flex gap-3"><Icon name="mail" class="h-6 w-6 shrink-0 text-accent" /><dd><a class="break-all hover:text-accent" href={`mailto:${company.email}`}>{company.email}</a></dd></div>
           <div class="flex gap-3"><Icon name="clock" class="h-6 w-6 shrink-0 text-accent" />
-            <dd>{t('info.workshop')}: {company.hours.workshop.join(' – ')}<br />{t('info.office')}: {company.hours.office.join(' – ')}</dd></div>
+            <dd><span class="font-semibold">{t('info.weekdays')}</span><br />{t('info.workshop')}: {company.hours.workshop.join(' – ')}<br />{t('info.office')}: {company.hours.office.join(' – ')}</dd></div>
         </dl>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href={company.phoneHref} class="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-white hover:bg-accent-dark"><Icon name="phone" class="h-5 w-5" />{t('cta.call')}</a>
