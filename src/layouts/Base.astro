@@ -22,11 +22,11 @@ const schema = {
   legalName: company.legalName,
   url: `${site}/${lang}/`,
   image: `${site}/images/fachada-2.webp`,
-  telephone: '+34971653603',
+  telephone: ['+34971653603', '+34608365240'],
   email: company.email,
   address: { '@type': 'PostalAddress', streetAddress: company.address, postalCode: '07650', addressLocality: 'Santanyí', addressRegion: 'Illes Balears', addressCountry: 'ES' },
   geo: { '@type': 'GeoCoordinates', latitude: company.lat, longitude: company.lng },
-  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: company.hours.office[0], closes: company.hours.office[1] }],
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: company.hours[0], closes: company.hours[1] }],
 };
 ---
 <!doctype html>
@@ -89,12 +89,12 @@ const schema = {
           <p>{company.address}</p>
           <p>{company.city}</p>
           <p><a class="hover:text-white" href={company.phoneHref}>{company.phone}</a></p>
+          <p><a class="hover:text-white" href={company.whatsappHref} target="_blank" rel="noopener">WhatsApp {company.mobile}</a></p>
           <p><a class="break-all hover:text-white" href={`mailto:${company.email}`}>{company.email}</a></p>
         </div>
         <div class="space-y-1 text-sm">
           <p class="font-semibold text-white">{t('hours.title')} · {t('info.weekdays')}</p>
-          <p>{t('info.workshop')}: {company.hours.workshop.join(' – ')}</p>
-          <p>{t('info.office')}: {company.hours.office.join(' – ')}</p>
+          <p>{company.hours.join(' – ')}</p>
           <p class="pt-4"><a class="underline hover:text-white" href={`/${lang}/legal/`}>{t('footer.legal')}</a></p>
         </div>
       </div>

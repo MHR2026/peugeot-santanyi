@@ -17,7 +17,7 @@ npm run build    # genera la web en dist/
 
 | Qué | Dónde |
 | --- | --- |
-| Datos del taller (dirección, teléfono, email, horario, coordenadas) | `company` en `src/i18n/ui.ts` |
+| Datos del taller (dirección, teléfono, móvil y WhatsApp, email, horario, coordenadas) | `company` en `src/i18n/ui.ts` |
 | Textos en ES / DE / EN y lista de servicios | `src/i18n/ui.ts` |
 | Fotos de la galería | `gallery` en `src/i18n/ui.ts` (archivos en `public/images/`) |
 | Aviso legal, privacidad y cookies | `src/content/legal.ts` |

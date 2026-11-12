@@ -26,6 +26,9 @@ const mapEmbed = `https://www.google.com/maps?q=${company.lat},${company.lng}&z=
         <a href={company.phoneHref} class="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold hover:bg-accent-dark">
           <Icon name="phone" class="h-5 w-5" />{t('cta.call')} · {company.phone}
         </a>
+        <a href={company.whatsappHref} target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 font-semibold hover:brightness-95">
+          <Icon name="whatsapp" class="h-5 w-5" />WhatsApp
+        </a>
         <a href={mapsUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 font-semibold ring-1 ring-white/30 hover:bg-white/20">
           <Icon name="pin" class="h-5 w-5" />{t('cta.directions')}
         </a>
@@ -38,15 +41,15 @@ const mapEmbed = `https://www.google.com/maps?q=${company.lat},${company.lng}&z=
     <div class="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
       <div class="flex items-start gap-3">
         <Icon name="clock" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
-        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.workshop')}</p><p class="text-lg font-semibold">{company.hours.workshop.join(' – ')}</p><p class="text-sm text-ink/60">{t('info.weekdays')}</p></div>
-      </div>
-      <div class="flex items-start gap-3">
-        <Icon name="clock" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
-        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.office')}</p><p class="text-lg font-semibold">{company.hours.office.join(' – ')}</p><p class="text-sm text-ink/60">{t('info.weekdays')}</p></div>
+        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('hours.title')}</p><p class="text-lg font-semibold">{company.hours.join(' – ')}</p><p class="text-sm text-ink/60">{t('info.weekdays')}</p></div>
       </div>
       <div class="flex items-start gap-3">
         <Icon name="phone" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
         <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.phone')}</p><a href={company.phoneHref} class="text-lg font-semibold hover:text-accent">{company.phone}</a></div>
+      </div>
+      <div class="flex items-start gap-3">
+        <Icon name="whatsapp" class="mt-0.5 h-6 w-6 shrink-0 text-whatsapp" />
+        <div><p class="text-xs font-semibold uppercase tracking-wider text-ink/60">{t('info.mobile')}</p><a href={company.whatsappHref} target="_blank" rel="noopener" class="text-lg font-semibold hover:text-accent">{company.mobile}</a></div>
       </div>
       <div class="flex items-start gap-3">
         <Icon name="pin" class="mt-0.5 h-6 w-6 shrink-0 text-accent" />
@@ -117,12 +120,14 @@ const mapEmbed = `https://www.google.com/maps?q=${company.lat},${company.lng}&z=
         <dl class="mt-8 space-y-5">
           <div class="flex gap-3"><Icon name="pin" class="h-6 w-6 shrink-0 text-accent" /><dd>{company.address}<br />{company.city}</dd></div>
           <div class="flex gap-3"><Icon name="phone" class="h-6 w-6 shrink-0 text-accent" /><dd><a class="font-semibold hover:text-accent" href={company.phoneHref}>{company.phone}</a></dd></div>
+          <div class="flex gap-3"><Icon name="whatsapp" class="h-6 w-6 shrink-0 text-whatsapp" /><dd>{t('info.mobile')}: <a class="font-semibold hover:text-accent" href={company.whatsappHref} target="_blank" rel="noopener">{company.mobile}</a></dd></div>
           <div class="flex gap-3"><Icon name="mail" class="h-6 w-6 shrink-0 text-accent" /><dd><a class="break-all hover:text-accent" href={`mailto:${company.email}`}>{company.email}</a></dd></div>
           <div class="flex gap-3"><Icon name="clock" class="h-6 w-6 shrink-0 text-accent" />
-            <dd><span class="font-semibold">{t('info.weekdays')}</span><br />{t('info.workshop')}: {company.hours.workshop.join(' – ')}<br />{t('info.office')}: {company.hours.office.join(' – ')}</dd></div>
+            <dd><span class="font-semibold">{t('info.weekdays')}</span><br />{company.hours.join(' – ')}</dd></div>
         </dl>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href={company.phoneHref} class="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-white hover:bg-accent-dark"><Icon name="phone" class="h-5 w-5" />{t('cta.call')}</a>
+          <a href={company.whatsappHref} target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 font-semibold text-white hover:brightness-95"><Icon name="whatsapp" class="h-5 w-5" />WhatsApp</a>
           <a href={`mailto:${company.email}`} class="inline-flex items-center gap-2 rounded-full border border-navy px-6 py-3 font-semibold text-navy hover:bg-navy hover:text-white"><Icon name="mail" class="h-5 w-5" />{t('cta.email')}</a>
         </div>
       </div>

@@ -11,11 +11,13 @@ export const company = {
   city: '07650 Santanyí (Mallorca)',
   phone: '971 653 603',
   phoneHref: 'tel:+34971653603',
+  mobile: '608 365 240', // móvil con WhatsApp
+  whatsappHref: 'https://wa.me/34608365240',
   email: 'Peugeot_santanyi@hotmail.com',
   lat: 39.352142,
   lng: 3.131508,
   // De lunes a viernes
-  hours: { workshop: ['07:00', '15:00'], office: ['07:00', '18:00'] },
+  hours: ['07:00', '15:00'],
 };
 
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${company.lat},${company.lng}`;
@@ -37,6 +39,7 @@ const es = {
   'info.office': 'Oficina',
   'info.address': 'Dirección',
   'info.phone': 'Teléfono',
+  'info.mobile': 'Móvil · WhatsApp',
   'info.weekdays': 'De lunes a viernes',
   'services.eyebrow': 'Qué hacemos',
   'services.title': 'Nuestros servicios',
@@ -78,6 +81,7 @@ const de: Dict = {
   'info.office': 'Büro',
   'info.address': 'Adresse',
   'info.phone': 'Telefon',
+  'info.mobile': 'Handy · WhatsApp',
   'info.weekdays': 'Montag bis Freitag',
   'services.eyebrow': 'Was wir machen',
   'services.title': 'Unsere Leistungen',
@@ -117,6 +121,7 @@ const en: Dict = {
   'info.office': 'Office',
   'info.address': 'Address',
   'info.phone': 'Phone',
+  'info.mobile': 'Mobile · WhatsApp',
   'info.weekdays': 'Monday to Friday',
   'services.eyebrow': 'What we do',
   'services.title': 'Our services',
